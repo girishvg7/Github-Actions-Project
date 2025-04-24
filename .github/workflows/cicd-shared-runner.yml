@@ -24,6 +24,7 @@ jobs:
 
   Security_check: #2nd job 
     runs-on: ubuntu-latest
+    needs: compile #these will make sure the first job called let get completes and 2nd job will trigger
     steps:
     - uses: actions/checkout@v4
 
@@ -41,7 +42,7 @@ jobs:
         sudo apt update -y
         sudo apt install trivy -y
         
-    - name: Trivy_File_Scan # 2ns steps here
+    - name: Trivy_File_Scan # 2nd steps here
       run: trivy fs --format json -o trivy-report.json .
 
     - name: gitleaks_installation #3rd steps here
