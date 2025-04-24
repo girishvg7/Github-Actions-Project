@@ -50,6 +50,11 @@ jobs:
 
     - name: gitleaks_code_scan #4th  steps here #4th steps here
       run:  gitleaks detect --source . --report-format json --report-path gitleaks-report.json
+    - name: Show current directory
+      run: pwd
+
+    - name: List all files
+      run: ls -R
       
     
      
