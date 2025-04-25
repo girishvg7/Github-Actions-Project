@@ -55,10 +55,12 @@ jobs:
 
     - name: List all files
       run: ls -R
+      
   testing:
     runs-on: self-hosted
     needs: Security_check #these job needs to complete becuase of depenedency
     steps:
+    - name: checkout code
     - uses: actions/checkout@v4
     - name: setup jdk 17
     - uses: actions/setup-java@v4
